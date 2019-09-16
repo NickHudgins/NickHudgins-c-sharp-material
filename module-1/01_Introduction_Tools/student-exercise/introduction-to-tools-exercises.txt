@@ -3,7 +3,7 @@
     directory to the exercise directory.
 ----
 
-$ cd ~/YOURNAME-c-sharp-material/module-1/01_Introduction_Tools/student-exercise/csharp-helloworld
+$ cd ~/NickHudgins-c-sharp-material/module-1/01_Introduction_Tools/student-exercise/csharp-helloworld
 
 Note, do not enter the beginning "$" character. It represents the prompt for
 the command line. This convention is commonly used to visually separate the
@@ -15,7 +15,7 @@ actual command from other text in Unix documentation.
     refer to?
 ----
 
-<type your response here>
+Home directory
 
 ----
 3.  A good habit to develop, especially while you're developing your skills on
@@ -24,7 +24,9 @@ actual command from other text in Unix documentation.
 ----
 
 $ pwd
-<type or copy-paste the result here>
+$ pwd
+/c/Users/nickh/NickHudgins-c-sharp-material/module-1/01_Introduction_Tools/student-exercise/csharp-helloworld
+
 
 The present working directory displayed should match the directory you changed
 to in Exercise 1.  Note, the two may not match at the very beginning if you

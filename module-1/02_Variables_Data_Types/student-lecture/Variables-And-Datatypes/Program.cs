@@ -13,7 +13,7 @@ namespace Variables_And_Datatypes
 			Then set it to 26.
 		    */
 
-            //Console.WriteLine(numberOfExercises);
+            Console.WriteLine(numberOfExercises);
 
             /*
             2. Create a variable to hold a double and call it half.

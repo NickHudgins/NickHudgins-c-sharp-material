@@ -15,7 +15,7 @@ namespace Lecture
         */
         public bool ReturnNameOfLanguage()
         {
-            return false;
+            return c#;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Lecture
          */
         public int ReturnDoubleOfTwo()
         {
-            return 2;
+            return 2.0;
         }
     }
 }

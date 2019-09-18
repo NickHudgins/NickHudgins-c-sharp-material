@@ -396,7 +396,9 @@ namespace VariableNaming
             50. Cristina baked 17 croissants. If she planned to serve this equally to
             her seven guests, how many will each have?
             */
-
+            int christinasCroissants = 17;
+            int christinasGuests = 7;
+            double croissantPerGuest = christinasCroissants / christinasGuests;
             /*
                 CHALLENGE PROBLEMS
             */

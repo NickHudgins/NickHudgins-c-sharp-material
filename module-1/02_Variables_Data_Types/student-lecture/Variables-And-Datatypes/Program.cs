@@ -92,11 +92,11 @@ namespace Variables_And_Datatypes
             14. Add a " Esquire" onto the end of your full name and save it back to
             the same variable.
             */string fullname = "Nick Hudgins Esquire";
-          
+
             /*
             15. Now do the same as exercise 14, but use the += operator.
             */
-
+            fullName += "Nick Hudgins Esquire";
             /*
             16. Create a variable to hold "Saw" and add a 2 onto the end of it.
             */
@@ -104,47 +104,50 @@ namespace Variables_And_Datatypes
             /*
             17. Add a 0 onto the end of the variable from exercise 16.
             */
-            
+            movieName = "Saw" + 2 + 0;
             /*
             18. What is 4.4 divided by 2.2?
             */
-
+            double result = 4.4 / 2.2;
             /*
             19. What is 5.4 divided by 2?
             */
-
+            result = 5.4 / 2;
             /* CASTING */
 
             /*
             20. What is 5 divided by 2?
             */
-
+            result = 5 / 2;
             /*
             21. What is 5.0 divided by 2?
             */
-
+            result = 5.0 / 2;
             /*
             22. Create a variable that holds a bank balance with the value of 1234.56.
             */
-
+            double bankBalance = 1234.56;
             /*
             23. If I divide 5 by 2, what's my remainder?
             */
-
+            int remainder = 5 % 2;
             /*
             24. Create two variables: 3 and 1,000,000,000 and multiple them together. 
                 What is the result?
             */
+            int x = 3;
+            int y = 1000000000;
+            int total = x * y;
 
             /*
             25. Create a variable that holds a boolean called doneWithExercises and
             set it to false.
             */
-
+            bool doneWithExercises = false;
             /*
             26. Now set doneWithExercise to true.
             */
-
+            doneWithExercises = true;
 
             Console.ReadLine();
         }

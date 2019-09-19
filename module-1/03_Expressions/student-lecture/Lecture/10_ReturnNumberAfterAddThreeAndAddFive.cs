@@ -22,7 +22,8 @@ namespace Lecture
                 number = number + 3;
             }
 
-            // Why can't we use an else here?
+            // Why can't we use an else here? Because the answer can only be true or false */
+            
 
             if (addFive)
             {

@@ -17,7 +17,8 @@ namespace Exercises
 	     */
         public bool SleepIn(bool weekday, bool vacation)
         {
-            return false;
+            SleepIn(vacation, vacation);
+            return true;
         }
 
     }

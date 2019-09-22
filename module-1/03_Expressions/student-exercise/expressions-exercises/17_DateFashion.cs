@@ -20,8 +20,26 @@ namespace Exercises
         DateFashion(5, 5) → 1
         */
         public int DateFashion(int you, int date)
-        {
-            return 0;
+          {
+            int noTable = 0;
+            int maybeTable = 1;
+            int gotTable = 2;
+
+            if (you <= 2 || date <= 2)
+            {
+                return noTable;
+            }
+
+            if (you >= 8 || date >= 8)
+            {
+                return gotTable;
+            }
+          
+            else
+           {
+               return maybeTable;
+            }
+            
         }
 
     }

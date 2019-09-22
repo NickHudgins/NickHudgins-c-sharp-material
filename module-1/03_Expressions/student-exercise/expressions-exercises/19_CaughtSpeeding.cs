@@ -19,7 +19,44 @@ namespace Exercises
          */
         public int CaughtSpeeding(int speed, bool isBirthday)
         {
-            return 0;
+            int noTicket = 0;
+            int smallTicket = 1;
+            int bigTicket = 2;
+            int bottom = 60;
+            int mid = 61;
+            int midMax = 80;
+            int top = 81;
+
+            if (isBirthday)
+            {
+                bottom += 5;
+                mid += 5;
+                midMax += 5;
+                top += 5;
+            }
+
+            bool sixtyOrLess = speed <= bottom;
+            bool sixtyOneToEighty = speed >= mid && speed <= midMax;
+            bool overEightyOne = speed >= top;
+
+            if (sixtyOrLess)
+            {
+                return noTicket;
+            }
+            else if (sixtyOneToEighty)
+            {
+                return smallTicket;
+            }
+            else if (overEightyOne)
+            {
+                return bigTicket;
+            }
+            else
+            {
+                return 0;
+            }
+            
+            
         }
 
     }

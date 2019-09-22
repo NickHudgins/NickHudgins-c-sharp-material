@@ -17,8 +17,10 @@ namespace Exercises
          */
         public bool CommonEnd(int[] a, int[] b)
         {
-            return false;
+            { return (a[0] == b[0] && (a.Length -1 == b.Length -1)); }
+
         }
+        
 
     }
 }

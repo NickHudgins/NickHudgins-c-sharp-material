@@ -17,7 +17,9 @@ namespace Exercises
          */
         public int[] Reverse3(int[] nums)
         {
-            return new int[] { };
+           // int reversed = { nums[2], nums[1], nums[0] };
+
+            return nums;  //this is similar to the rotated thing. Would like more intructions. I googled it but it didn't explain much. 
         }
 
     }

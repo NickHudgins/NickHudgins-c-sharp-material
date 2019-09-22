@@ -17,8 +17,11 @@ namespace Exercises
          */
         public int[] RotateLeft3(int[] nums)
         {
-            return new int[] { };
-        }
+           //int rotatedLeft ={ nums[1], nums[2], nums[0] };
+            {
+                return nums; //need help with this one. I figured if I could rotate the "nums" and then set it to return "rotatedLeft" it'd work
+            } 
+        } 
 
     }
 }

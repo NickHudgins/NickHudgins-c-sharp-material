@@ -17,7 +17,14 @@ namespace Exercises
          */
         public int Sum2(int[] nums)
         {
-            return 0;
+            int sum = 0 + 1;
+
+            for (int i = sum; i < nums.Length; i++)
+            {
+                sum += nums[i];
+            }
+
+            return sum;
         }
 
     }

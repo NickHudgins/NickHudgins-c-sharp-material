@@ -19,13 +19,13 @@ namespace Exercises
         {
             int sum = 0 + 1;
 
-            for (int i = sum; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
                 sum += nums[i];
             }
 
             return sum;
         }
-
+        
     }
 }

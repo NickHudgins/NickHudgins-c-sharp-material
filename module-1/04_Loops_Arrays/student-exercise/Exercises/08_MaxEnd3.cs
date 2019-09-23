@@ -17,7 +17,13 @@ namespace Exercises
          */
         public int[] MaxEnd3(int[] nums)
         {
-            return new int[] { };
+            // i have no clue
+            
+            {
+                return nums;
+            }
+            
+            
         }
 
     }

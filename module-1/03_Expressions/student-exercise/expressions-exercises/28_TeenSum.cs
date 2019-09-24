@@ -20,9 +20,9 @@ namespace Exercises
         public int TeenSum(int a, int b)
         {
             int sum = a + b;
-           
+            bool teenRange = a >= 13 && a <= 19 || b >= 13 && b <= 19;
 
-            if (sum >= 13 && sum <= 19)
+            if (teenRange)
             {
                 return 19;
             }

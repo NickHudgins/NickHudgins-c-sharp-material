@@ -17,13 +17,22 @@ namespace Exercises
          */
         public int[] MaxEnd3(int[] nums)
         {
-            // i have no clue
-            
+            if (nums[0] > nums[2])
             {
-                return nums;
+                nums[1] = nums[0];
+                nums[2] = nums[0];
             }
-            
-            
+            else
+            {
+                nums[0] = nums[2];
+                nums[1] = nums[2];
+            }
+
+
+            return nums;
+
+
+
         }
 
     }

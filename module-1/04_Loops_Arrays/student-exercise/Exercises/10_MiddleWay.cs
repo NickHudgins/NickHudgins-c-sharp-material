@@ -17,12 +17,12 @@ namespace Exercises
          */
         public int[] MiddleWay(int[] a, int[] b)
         {
+            int[] middle = new int[2];
 
-            int[] middleNumber = a[1], b[1];
+            middle[0] = a[1];
+            middle[1] = b[1];
 
-            for (int i = 1; i < nums.Length; i++)
-
-                return middleNumber[i];
+            return middle;
 
         }
 

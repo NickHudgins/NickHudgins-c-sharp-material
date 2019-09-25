@@ -17,6 +17,7 @@ namespace Exercises
          */
         public string Right2(string str)
         {
+            
             return null;
         }
     }

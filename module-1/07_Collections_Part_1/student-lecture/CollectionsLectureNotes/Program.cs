@@ -19,10 +19,11 @@ namespace CollectionsLectureNotes
 
             // Creating lists of integers
 
+            List<int> nums = new List<int>();
 
             // Creating lists of strings
 
-
+            List<string> listStrings = new List<string>();
 
             /////////////////
 
@@ -32,43 +33,56 @@ namespace CollectionsLectureNotes
             //////////////////
 
 
+
             /////////////////
             // ADDING ITEMS
             /////////////////
 
             // Adding items one at a time to each list
-
-
+            nums.Add(89);
+            listStrings.Add("words");
+            listStrings.Add(7.ToString());
             /////////////////
             // ADDING MULTIPLE ITEMS
             /////////////////
+            int[] values = { 90, 45, 5, 8, 65, 90 };
 
+            nums.AddRange(values);
 
 
             //////////////////
             // ACCESSING BY INDEX
             //////////////////
 
-
+            Console.WriteLine(nums[0]); //accesses first number in list (89)
 
 
             ///////////////////
             // ACCESSING WITH FOR-EACH
             ///////////////////
-
+            ///
+            foreach(int item in nums )
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
 
             ////////////////////
             // ADDITIONAL LIST<T> METHODS
             ////////////////////
 
 
+
             ////////////////////////
             // SORT and PRINT A LIST
             ////////////////////////
 
-
-
-
+            nums.Sort();
+            foreach (int item in nums)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
             // QUEUE <T>
             //
             // Queues are a special type of data structure that follow First-In First-Out (FIFO).
@@ -79,25 +93,44 @@ namespace CollectionsLectureNotes
             // PROCESSING ITEMS IN A QUEUE
             /////////////////////
 
+            Queue<int> numbers = new Queue<int>();
+            numbers.Enqueue(3);
+            numbers.Enqueue(1);
+            numbers.Enqueue(4);
+
+            while (numbers.Count > 0)
+            {
+                int temp = numbers.Dequeue();
+                Console.WriteLine(temp);
+            }
 
 
-            // STACK <T>
             //
             // Stacks are another type of data structure that follow Last-In First-Out (LIFO).
             // With Stacks, we Push (add) and Pop (remove) items. 
 
-
-            ////////////////////
             // PUSHING ITEMS TO THE STACK
             //////////////////// 
+            ////////////////////
 
-            
+            Stack<string> names = new Stack<string>();
+
+            names.Push("Primrose");
+            names.Push("Penny");
+            names.Push("Gabe");
+
+
+
 
             ////////////////////
             // POPPING THE STACK
             ////////////////////
-            
 
+            while (names.Count > 0)
+            {
+                Console.WriteLine(names.Pop());
+            }
+            Console.WriteLine();
             Console.ReadLine();
 
         }

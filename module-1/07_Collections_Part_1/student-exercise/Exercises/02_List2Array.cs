@@ -16,7 +16,13 @@ namespace Exercises
          */
         public string[] List2Array(List<string> stringList)
         {
-            return null;
+            List<string> arrayList = new List<string>();
+            arrayList.ToArray(stringList);
+            
+            
+        
+            return stringList;
         }
+        
     }
 }

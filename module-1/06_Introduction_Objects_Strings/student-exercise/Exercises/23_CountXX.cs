@@ -16,7 +16,13 @@ namespace Exercises
          */
         public int CountXX(string str)
         {
-            return 0;
+            int count = 0;
+
+            for(int i = str.IndexOf("xx"); i != -1; i = str.IndexOf("xx", i = 1))
+            {
+                count++;
+            }
+            return count;
         }
     }
 }

@@ -16,7 +16,13 @@ namespace Exercises
          */
         public string StringBits(string str)
         {
-            return null;
+            string res = "";
+
+            for (int i = 0; i < str.Length; i += 2)
+            {
+                res = res + str[i];
+            }
+            return res;
         }
     }
 }

@@ -19,6 +19,13 @@ namespace DictionaryCollection
             //      | "John"    | 75 |
             //      | "Jack"    | 73 |
 
+            Dictionary<string, int> personHeight = new Dictionary<string, int>();
+            personHeight["Josh"] = 70;
+            personHeight["Bob"] = 72;
+            personHeight["John"] = 75;
+            personHeight["Jack"] = 73;
+
+
             while (input == "yes" || input == "y")
             {
                 Console.Write("What is the person's name?: ");
@@ -29,7 +36,7 @@ namespace DictionaryCollection
 
                 // 2. Check to see if that name is in the dictionary
                 //      bool exists = dictionaryVariable.ContainsKey(key)
-                bool exists = false;    // <-- change this
+                bool exists = personHeight.ContainsKey(name);
 
                 if (!exists)
                 {
@@ -38,12 +45,15 @@ namespace DictionaryCollection
                     //      dictionaryVariable[key] = value;
                     //      OR dictionaryVariable.Add(key, value);
 
+                    personHeight.Add(name, height);
+
                 }
                 else
                 {
-                    Console.WriteLine($"Overwriting {name} with new value.");
+                    Console.WriteLine($"Overwriting {name} with new value."); //string interpolation ($)
                     // 4. Overwrite the current key with a new value
                     //      dictionaryVariable[key] = value;
+                    personHeight[name] = height;
                 }
 
 
@@ -70,6 +80,7 @@ namespace DictionaryCollection
                 Console.WriteLine(".... printing ...");
 
                 //6. Let's print each item in the dictionary
+                PrintDictionary(personHeight);
 
             }
 
@@ -87,6 +98,12 @@ namespace DictionaryCollection
         {
             // Looping through a dictionary involves using a foreach loop
             // to look at each item, which is a key-value pair
+            Console.WriteLine("Key  Value");
+            foreach (KeyValuePair<string, int> kvp in database)
+            {
+                Console.WriteLine(kvp.Key + "  " +kvp.Value);
+            }
+            return;
         }
     }
 }

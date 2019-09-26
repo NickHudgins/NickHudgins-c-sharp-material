@@ -17,7 +17,20 @@ namespace Exercises
          */
         public string StringYak(string str)
         {
-            return null;
+            string yakResult = "";
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (i + 2 < str.Length && str[i] == 'y' && str[i +2] == 'k')
+                {
+                    i += 2;
+                }
+                else
+                {
+                    yakResult += str[i];
+                }
+            }
+            return yakResult; //had to google the last 5 or 6 of these pretty heavily, will continue to try and understand better
         }
     }
 }

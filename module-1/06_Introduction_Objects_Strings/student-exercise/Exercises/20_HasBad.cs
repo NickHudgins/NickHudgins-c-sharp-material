@@ -18,7 +18,16 @@ namespace Exercises
          */
         public bool HasBad(string str)
         {
-            return false;
+            if (str.Length <= 2)
+            {
+                return false;
+            }
+            if (str.Length == 3)
+            {
+                return str.Substring(0, 3).Equals("bad");
+            }
+            return str.Substring(0, 3).Equals("bad") || str.Substring(1, 3).Equals("bad");
         }
+
     }
 }

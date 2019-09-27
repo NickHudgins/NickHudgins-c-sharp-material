@@ -22,7 +22,27 @@ namespace Exercises
          */
         public List<string> FizzBuzzList(int[] integerArray)
         {
-            return null;
+            List<string> FizzBuzz = new List<string>();
+            string intToString = integerArray.ToString();
+
+            for (int i = 0; i < integerArray.Length; i++)
+            {
+                string str = "";
+                if (i % 3 == 0 && i % 5 == 0)
+                {
+                    str += "FizzBuzz";
+                }
+                else if (i % 3 == 0)
+                {
+                    str +="Fizz";
+                }
+                else if (i % 5 == 0)
+                {
+                    str +="Buzz";
+                }
+            }
+            return null; /* I am missing something that'll allow me to return the other numbers
+            that arent FIZZ, BUZZ or FIZZBUZZ, will seek help and resubmit for better regrade iff allowed*/
         }
 
     }

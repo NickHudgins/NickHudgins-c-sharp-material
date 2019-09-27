@@ -15,10 +15,11 @@ namespace Exercises
          FindLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
          */
         public int FindLargest(List<int> integerList)
-        { 
+        {
+            List<int> largestValue = new List<int>();
+            largestValue.AddRange(integerList);
+            return integerList.Max<int>();
 
-
-            return 0;
 
         }
         

@@ -18,6 +18,12 @@ namespace Exercises
          */
         public List<int> InterleaveLists(List<int> listOne, List<int> listTwo)
         {
+            List<int> interLeaveList = new List<int>();
+            
+            /*I googled and researched this for a while, still not entirely sure how to go about 
+             * implementing this. Will seek further instruction and resubmit this exercise if allowed*/
+            
+
             return null;
         }
     }

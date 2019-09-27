@@ -19,11 +19,10 @@ namespace Exercises
             
             List<double> dividedTwo = new List<double>();
             
-            
             {
                 for (int i = 0; i < intArray.Length; i++)
                 {
-                    dividedTwo.Add(intArray[i] / 2);
+                    dividedTwo.Add(intArray[i] / (double)2);
                 }
             }
 

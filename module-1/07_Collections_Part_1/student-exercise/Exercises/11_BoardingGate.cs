@@ -20,7 +20,7 @@ namespace Exercises
          */
         public List<int> BoardingGate(List<int> seatNumberList)
         {
-            return null;
+            return null; /* was also unsure how to go about this. Will collaborate and resubmit for regrade if possible*/
         }
     }
 }

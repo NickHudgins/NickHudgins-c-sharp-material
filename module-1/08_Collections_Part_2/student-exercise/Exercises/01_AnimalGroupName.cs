@@ -38,7 +38,20 @@ namespace Exercises
          */
         public string AnimalGroupName(string animalName)
         {
+            Dictionary<string, string> animalGroups = new Dictionary<string, string>();
+            animalGroups.Add("Rhino", "Crash");
+            animalGroups.Add("Giraffe", "Tower");
+            animalGroups.Add("Elephant", "Herd");
+            animalGroups.Add("Lion", "Pride");
+            animalGroups.Add("Crow", "Murder");
+            animalGroups.Add("Pigeon", "Kit");
+            animalGroups.Add("Flamingo", "Pat");
+            animalGroups.Add("Deer", "Herd");
+            animalGroups.Add("Dog", "Pack");
+            animalGroups.Add("Crocodile", "Float");
+
             return null;
         }
+        return unknown;
     }
 }

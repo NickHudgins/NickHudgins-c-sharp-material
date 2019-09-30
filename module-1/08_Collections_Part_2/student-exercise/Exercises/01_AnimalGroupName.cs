@@ -38,7 +38,9 @@ namespace Exercises
          */
         public string AnimalGroupName(string animalName)
         {
+          
             Dictionary<string, string> animalGroups = new Dictionary<string, string>();
+
             animalGroups.Add("Rhino", "Crash");
             animalGroups.Add("Giraffe", "Tower");
             animalGroups.Add("Elephant", "Herd");
@@ -50,8 +52,17 @@ namespace Exercises
             animalGroups.Add("Dog", "Pack");
             animalGroups.Add("Crocodile", "Float");
 
-            return null;
+            foreach (KeyValuePair<string, string> keyValuePair in animalGroups)
+            {
+                if(keyValuePair.Key.ToLower() == animalName.ToLower())
+                {
+                    return keyValuePair.Value;
+                }
+            }
+
+            return "unknown";
         }
-        return unknown;
+        
+
     }
 }

@@ -19,7 +19,37 @@ namespace Exercises
          */
         public Dictionary<string, bool> WordMultiple(string[] words)
         {
-            return null;
+            Dictionary<string, bool> stringBool = new Dictionary<string, bool>();
+
+            Dictionary<string, int> stringCount = new Dictionary<string, int>();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (stringCount.ContainsKey(words[i]))
+                {
+                    stringCount[words[i]] = stringCount[words[i]] + 1;
+                }
+                else
+                {
+                    stringCount.Add(words[i], 1);
+                }
+            }
+            foreach (KeyValuePair<string, int> item in stringCount)
+            {
+                if (item.Value >= 2)
+                {
+                    stringBool.Add(item.Key, true);
+                }
+                else
+                {
+                    stringBool.Add(item.Key, false);
+                }
+            }
+            return stringBool;
+
+
         }
+
+        
     }
 }

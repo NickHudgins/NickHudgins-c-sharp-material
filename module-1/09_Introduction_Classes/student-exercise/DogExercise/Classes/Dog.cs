@@ -12,7 +12,7 @@ namespace TechElevator.Classes
     */
     public class Dog
     {
-        public bool IsSleeping {get;} 
+        public bool IsSleeping { get; private set; } 
         
         public Dog()
         {
@@ -33,11 +33,11 @@ namespace TechElevator.Classes
 
         public void Sleep() 
         {
-            
+            IsSleeping = true;
         }
         public void WakeUp()
         {
-
+            IsSleeping = false;
         }
 
 

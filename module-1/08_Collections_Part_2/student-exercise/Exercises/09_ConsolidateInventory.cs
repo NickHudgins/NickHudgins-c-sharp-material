@@ -41,6 +41,6 @@ namespace Exercises
                 }
             }
             return combinedValues;
-        } //what I have so far, talk to John.
+        } 
     }
 }

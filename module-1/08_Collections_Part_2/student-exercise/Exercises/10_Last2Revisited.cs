@@ -32,6 +32,8 @@ namespace Exercises
                 lastTwoCount[words[i].Substring(0, 2)] = words[i].Substring(words[i].Length - 1);
             }*/
 
+
+            //was not sure how to go about. Seeking instruction.
             return null;
         }
     }

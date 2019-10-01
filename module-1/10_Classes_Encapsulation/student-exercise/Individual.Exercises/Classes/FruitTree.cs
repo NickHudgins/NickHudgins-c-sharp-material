@@ -8,6 +8,27 @@ namespace Individual.Exercises.Classes
 {
     public class FruitTree
     {
-        
+
+        public string TypeOfFruit { get; }
+        public int PiecesOfFruitLeft { get; private set; }
+
+        public FruitTree(string typeOfFruit, int startingPiecesOfFruit)
+        {
+            TypeOfFruit = typeOfFruit;
+            startingPiecesOfFruit = PiecesOfFruitLeft;
+        }
+
+        public bool PickFruit(int numberOfPiecesToRemove)
+        {
+            if (numberOfPiecesToRemove <= PiecesOfFruitLeft)
+            {
+                PiecesOfFruitLeft = PiecesOfFruitLeft - numberOfPiecesToRemove;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

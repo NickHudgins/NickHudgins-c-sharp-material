@@ -8,6 +8,49 @@ namespace TDD.Classes
 {
     public class KataRomanNumeral
     {
-       
+        public string ConvertToRomanNumeral(int n)
+        {
+            string result = String.Empty;
+
+            result = ConvertDetail(ref n, result, "M", 1000);
+            result = ConvertDetail(ref n, result, "D", 500);
+            result = ConvertDetail(ref n, result, "C", 100);
+            result = ConvertDetail(ref n, result, "L", 50);
+            result = ConvertDetail(ref n, result, "X", 10);
+            result = ConvertDetail(ref n, result, "V", 5);
+            result = ConvertDetail(ref n, result, "I", 1);
+            result = result.Replace("IIII", "IV");
+            result = result.Replace("CCCC", "CD");
+
+
+            //while (n >= 1000)
+            //{
+            //    result += "M";
+            //    n -= 1000;
+            //}
+
+            //while (n >= 100)
+            //{
+            //    result += "C";
+            //    n -= 100;
+            //}
+            //while (n >= 50)
+            //{
+            //    result += "L";
+            //    n -= 50;
+            //}
+            return result;
+        }
+        private string ConvertDetail(ref int currentValue, string working, string romanNumeral, int arabicNumeral)
+        {
+            while (currentValue >= arabicNumeral)
+            {
+                working += romanNumeral;
+                 currentValue -= arabicNumeral;
+            }
+            return working;
+        }
+
+
     }
 }

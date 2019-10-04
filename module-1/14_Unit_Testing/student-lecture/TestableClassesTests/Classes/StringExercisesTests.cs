@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace TestableClasses.Classes.Tests
 {
     [TestClass()]
@@ -21,6 +22,52 @@ namespace TestableClasses.Classes.Tests
         //.IsNotNull()
         //.IsNull()
 
+        //makeAbba("Hi", "Bye") → "HiByeByeHi"	
+         //makeAbba("Yo", "Alice") → "YoAliceAliceYo"	
+         //makeAbba("What", "Up") → "WhatUpUpWhat"	
+         //*/
+        //public string MakeAbba(string a, string b)
+        
+            //return a + b + b + a;
+        [TestMethod]
+        public void MakeAbbaTest()
+        {
+            StringExercises stringExercises = new StringExercises();
+
+            string result = stringExercises.MakeAbba("Hi", "Bye");
+            Assert.AreEqual("HiByeByeHi", result);
+
+            result = stringExercises.MakeAbba("Yo", "Alice");
+            Assert.AreEqual("YoAliceAliceYo", result);
+
+            result = stringExercises.MakeAbba("What", "Up");
+            Assert.AreEqual("WhatUpUpWhat", result);
+
+
+        }
+
+        //makeOutWord("<<>>", "Yay") → "<<Yay>>"	
+        // makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"	
+         //makeOutWord("[[]]", "word") → "[[word]]"	
+
+        [TestMethod]
+        public void MakeOutWordTest()
+        {
+            StringExercises testClass = new StringExercises();
+
+            string result = testClass.MakeOutWord("<<>>", "Yay");
+            Assert.AreEqual("<<Yay>>", result);
+
+            result = testClass.MakeOutWord("<<>>", "WooHoo");
+            Assert.AreEqual("<<WooHoo>>", result);
+
+            result = testClass.MakeOutWord("[[]]", "word");
+            Assert.AreEqual("[[word]]", result);
+
+
+
+
+        }
 
         
     }

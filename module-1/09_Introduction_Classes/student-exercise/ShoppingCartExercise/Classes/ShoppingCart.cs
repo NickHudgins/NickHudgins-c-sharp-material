@@ -21,7 +21,7 @@ namespace TechElevator.Classes
 
         public decimal GetAveragePricePerItem()
         {
-            return TotalAmountOwed / TotalNumberOfItems;
+            return TotalNumberOfItems / TotalAmountOwed;
         }
         public void AddItems(int numberOfItems, decimal pricePerItem)
         {

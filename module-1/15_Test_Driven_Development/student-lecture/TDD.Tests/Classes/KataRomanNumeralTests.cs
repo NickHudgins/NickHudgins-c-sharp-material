@@ -7,13 +7,7 @@ namespace TDD.Tests.Classes
     [TestClass]
     public class KataRomanNumeralTests
     {
-        KataRomanNumeral testClass;
-
-        [TestInitialize]
-        public void Initialize()
-        {
-            testClass = new KataRomanNumeral();
-        }
+        
 
 
 

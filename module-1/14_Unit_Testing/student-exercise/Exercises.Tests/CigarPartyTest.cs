@@ -16,13 +16,13 @@ namespace Exercises.Tests
             CigarParty testClass = new CigarParty();
 
             bool result = testClass.HaveParty(30, false);
-            Assert.IsFalse(false);
+            Assert.IsFalse(result);
 
             result = testClass.HaveParty(50, false);
-            Assert.IsFalse(true);
+            Assert.IsTrue(result);
 
             result = testClass.HaveParty(70, true);
-            Assert.IsFalse(true);
+            Assert.IsTrue(result);
         }
     }
 }

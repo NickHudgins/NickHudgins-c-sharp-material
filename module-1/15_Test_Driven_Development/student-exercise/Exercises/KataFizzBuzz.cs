@@ -24,12 +24,22 @@ namespace Exercises
                 {
                     myString = "FizzBuzz";
                 }
-
-
-
+                else if (i % 3 == 0)
+                {
+                    myString = "Fizz";
+                }
+                else if (i % 5 == 0)
+                {
+                    myString = "Buzz";
+                }
+                else
+                {
+                    myString = i.ToString();
+                }
             }
-            return 0;
-        }
-        
+            return myString; // my tests will not come up to test this against. 
+                            // checked answers against group. Not super clear on the method used to test.
+        }                  // will continue to look into testing this weekend.
+
     }
 }

@@ -40,7 +40,7 @@ WHERE population < 1000
 -- 7. The name, continent, and GNP of all countries with a GNP greater than one trillion dollars (6 rows)
 SELECT name, continent 
 FROM country
-Where gnp > 1000000000000
+Where gnp > 1000000
 
 
 
@@ -83,13 +83,15 @@ AND population <= 2000000
 -- 14. The name and region of all countries in North or South America except for countries in the Caribbean (27 rows)
 SELECT name, region 
 FROM country 
-WHERE region != 'Caribbean'
-AND continent = 'North America'
+WHERE continent = 'North America'
 AND continent = 'South America'
+AND region != 'Caribbean'
 
 
 -- 15. The name, population, and GNP of all countries with a GNP greater than $1 trillion dollars and a population of less than 100 million people (4 rows)
-
+SELECT *
+FROM
+WHERE
 -- 16. The name and population of all cities in Texas that have a population of greater than 1 million people (3 rows)
 
 -- 17. The name and average life expectancy of all countries on the continent of Oceania (28 rows)

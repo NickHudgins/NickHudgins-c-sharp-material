@@ -83,8 +83,7 @@ AND population <= 2000000
 -- 14. The name and region of all countries in North or South America except for countries in the Caribbean (27 rows)
 SELECT name, region 
 FROM country 
-WHERE continent = 'North America'
-AND continent = 'South America'
+WHERE (continent = 'North America' OR continent = 'South America')
 AND region != 'Caribbean'
 
 
@@ -118,6 +117,7 @@ SELECT name
 FROM country
 WHERE continent = 'Oceania'
 AND lifeexpectancy IS NULL
+
 -- 20. The name, continent, GNP, and average life expectancy of all countries that have an average life expectancy of at least 70 years and a GNP between $1 million and $100 million dollars (3 rows)
 SELECT name
 FROM country
@@ -127,13 +127,15 @@ AND gnp >= 1000000
 AND gnp <= 100000000
 
 -- 21. The per capita GNP (i.e. GNP divided by population) in US Dollars of all countries in Europe (46 rows)
-SELECT name
+SELECT name, AVG = (gnp/population)
 FROM country
 WHERE continent = 'Europe'
 
 
 
+
 -- 22. The number of years since independence for all countries that have a year of independence (192 rows)
-SELECT *
-FROM country
-AS (DATE - indepyear) 
+SELECT SUM = (indepyear)
+FROM country 
+WHERE indepyear IS NOT NULL
+--not sure how to go about this one

@@ -1,38 +1,96 @@
 -- ORDERING RESULTS
 
 -- Populations of all countries in descending order
+SELECT name
+FROM country 
+ORDER BY population DESC
 
 --Names of countries and continents in ascending order
+SELECT name
+FROM country
+ORDER BY continent ASC, name ASC
 
 -- LIMITING RESULTS
 -- The name and average life expectancy of the countries with the 10 highest life expectancies.
+SELECT TOP 10 name
+FROM country 
+ORDER BY lifeexpectancy DESC
+
+
+
 
 -- CONCATENATING OUTPUTS
 
 -- The name & state of all cities in California, Oregon, or Washington.
 -- "city, state", sorted by state then city
-
+SELECT ( name + ', ' + district  )Location
+FROM city 
+WHERE district IN ('California', 'Oregon',  'Washington')
+ORDER BY district, name 
 -- AGGREGATE FUNCTIONS
 -- Average Life Expectancy in the World
+SELECT AVG (lifeexpectancy)
+FROM country
+
 
 -- Total population in Ohio
+SELECT SUM(population)
+FROM city
+WHERE district = 'Ohio'
 
 -- The surface area of the smallest country in the world
+SELECT TOP 1 *
+FROM country
+ORDER BY surfacearea
 
 -- The 10 largest countries in the world
+SELECT TOP 10 *
+FROM country 
+ORDER BY surfacearea DESC
 
--- The number of countries who declared independence in 1991
+
+-- The number of countries who declared independence in 1991\
+SELECT *
+FROM country	
+WHERE indepyear = '1991'
 
 -- GROUP BY
 -- Count the number of countries where each language is spoken, ordered from most countries to least
+SELECT language, COUNT(language) 
+count FROM countrylanguage
+GROUP BY language
+ORDER BY count DESC
+
 
 -- Average life expectancy of each continent ordered from highest to lowest
+SELECT continent, AVG(lifeexpectancy) avg
+FROM country	
+GROUP BY continent
+ORDER BY avg DESC
 
 -- Exclude Antarctica from consideration for average life expectancy
+SELECT continent, AVG(lifeexpectancy) avg
+FROM country	
+WHERE continent != 'ANTARCTICA'
+GROUP BY continent
+ORDER BY avg DESC
 
 -- Sum of the population of cities in each state in the USA ordered by state name
+SELECT district State, sum (population) population 
+FROM city 
+WHERE countrycode = 'USA'
+GROUP BY district
+ORDER BY district 
 
 -- The average population of cities in each state in the USA ordered by state name
+SELECT district State, sum (population) SUM, AVG(population) Avg
+FROM city 
+WHERE countrycode = 'USA'
+GROUP BY district
+ORDER BY district 
+
+SELECT *
+FROM country
 
 -- SUBQUERIES
 -- Find the names of cities under a given government leader

@@ -2,39 +2,122 @@
 
 -- 1. All of the films that Nick Stallone has appeared in
 -- (30 rows)
+SELECT actor.first_name, actor.last_name, film.title
+FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON actor.actor_id = film_actor.actor_id
+WHERE first_name = 'Nick'
+AND last_name = 'Stallone'
 
 -- 2. All of the films that Rita Reynolds has appeared in
 -- (20 rows)
+SELECT actor.first_name, actor.last_name, film.title
+FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON actor.actor_id = film_actor.actor_id
+WHERE first_name = 'Rita'
+AND last_name = 'Reynolds'
 
 -- 3. All of the films that Judy Dean or River Dean have appeared in
 -- (46 rows)
+SELECT actor.first_name, actor.last_name, film.title
+FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON actor.actor_id = film_actor.actor_id
+WHERE first_name = 'River'
+AND last_name = 'Dean'
+OR first_name = 'Judy'
+AND last_name = 'Dean'
 
 -- 4. All of the the ‘Documentary’ films
 -- (68 rows)
+SELECT *
+FROM film 
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON category.category_id = film_category.category_id
+WHERE name = 'Documentary'
 
 -- 5. All of the ‘Comedy’ films
 -- (58 rows)
+SELECT *
+FROM film 
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON category.category_id = film_category.category_id
+WHERE name = 'Comedy'
 
 -- 6. All of the ‘Children’ films that are rated ‘G’
 -- (10 rows)
+SELECT *
+FROM film 
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON category.category_id = film_category.category_id
+WHERE name = 'Children'
+AND rating = 'G'
 
 -- 7. All of the ‘Family’ films that are rated ‘G’ and are less than 2 hours in length
 -- (3 rows)
+SELECT *
+FROM film 
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON category.category_id = film_category.category_id
+WHERE name = 'Family'
+AND rating = 'G'
+AND length < 120
 
 -- 8. All of the films featuring actor Matthew Leigh that are rated ‘G’
 -- (9 rows)
+SELECT actor.first_name [First Name], actor.last_name [Last Name], film.title [Title], film.rating [Rating]
+FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON actor.actor_id = film_actor.actor_id
+WHERE first_name = 'Matthew'
+AND last_name = 'Leigh'
+AND rating = 'G'
 
 -- 9. All of the ‘Sci-Fi’ films released in 2006
 -- (61 rows)
+SELECT *
+FROM film 
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON category.category_id = film_category.category_id
+WHERE name = 'Sci-Fi'
+AND release_year = '2006'
 
 -- 10. All of the ‘Action’ films starring Nick Stallone
 -- (2 rows)
+SELECT actor.first_name, actor.last_name, film.title
+FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON actor.actor_id = film_actor.actor_id
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON category.category_id = film_category.category_id
+WHERE first_name = 'Nick'
+AND last_name = 'Stallone'
+AND name = 'Action'
+
 
 -- 11. The address of all stores, including street address, city, district, and country
 -- (2 rows)
+SELECT address, city, district, country
+FROM store
+JOIN address ON store.address_id = store.store_id
+JOIN city ON city.city_id = address.city_id
+JOIN country ON country.country_id = city.country_id
+
 
 -- 12. A list of all stores by ID, the store’s street address, and the name of the store’s manager
 -- (2 rows)
+SELECT address, store.store_id, first_name, last_name
+FROM store
+JOIN address ON store.address_id = store.store_id
+JOIN city ON city.city_id = address.city_id
+JOIN country ON country.country_id = city.country_id
+JOIN staff ON staff.staff_id = staff.store_id
+
+
+select*
+from store
+
 
 -- 13. The first and last name of the top ten customers ranked by number of rentals 
 -- (#1 should be “ELEANOR HUNT” with 46 rentals, #10 should have 39 rentals)

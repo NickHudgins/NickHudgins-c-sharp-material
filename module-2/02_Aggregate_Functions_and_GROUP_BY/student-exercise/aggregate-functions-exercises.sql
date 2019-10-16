@@ -143,15 +143,20 @@ SELECT COUNT(*) AS [Number Of Cities], countrycode
 FROM city
 GROUP BY countrycode
 ORDER BY [Number Of Cities] DESC
-
-SELECT *
-FROM city
-
 	
 -- 21. The population of the largest city in each country ordered from highest to 
 -- lowest.
 -- (largest city population in world: 10500000, "IND")
+SELECT MAX(population) AS [Population], countrycode
+FROM city
+GROUP BY countrycode
+ORDER BY [Population] DESC
+
 
 -- 22. The average, minimum, and maximum non-null life expectancy of each continent 
 -- ordered from lowest to highest average life expectancy. 
 -- (lowest average life expectancy: 52.5719, 37.2, 76.8, "Africa")
+SELECT AVG(lifeexpectancy) AS [Average Expectancy], MIN(lifeexpectancy) AS [Minimum Expectancy], MAX(lifeexpectancy) AS [Maximum Expectancy], continent
+FROM country
+GROUP BY continent
+ORDER BY [Average Expectancy] ASC

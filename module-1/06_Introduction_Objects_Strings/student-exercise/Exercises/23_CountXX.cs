@@ -18,9 +18,12 @@ namespace Exercises
         {
             int count = 0;
 
-            for(int i = str.IndexOf("xx"); i != -1; i = str.IndexOf("xx", i = 1))
+            for (int i = 0; i <str.Length -1; i++)
             {
-                count++;
+                if (str.Substring(i, 1) + str[i+1] == "xx")
+                {
+                    count++;
+                }
             }
             return count;
         }

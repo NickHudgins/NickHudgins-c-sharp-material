@@ -18,12 +18,15 @@ namespace Exercises
         {
             int i = str.IndexOf('x');
 
-            if (i == -1 || i == str.Length - 1)
+            if (i + 1 < str.Length)
             {
-                return false;
+                if (str[i + 1] == 'x')
+                {
+                    return true;
+                }
             }
 
-            return str.Substring(i, i + 2).Equals("xx");
+            return false;
         }
     }
 }

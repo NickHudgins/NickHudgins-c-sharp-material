@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVCModels.Web.DAL
 {
-    public interface IProductDAO
+    public interface IProductDAO 
     {
         /// <summary>
         /// Gets all of the products.

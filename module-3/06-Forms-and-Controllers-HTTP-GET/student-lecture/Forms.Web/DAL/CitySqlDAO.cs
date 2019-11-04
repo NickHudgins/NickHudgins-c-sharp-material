@@ -61,7 +61,7 @@ namespace Forms.Web.DAL
             return output;
         }
 
-        public IList<City> GetCities(string countryCode, string district)
+        public IList<City> GetCities(string countryCode, string district = "")
         {
             district = "%" + district + "%";
 

@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Forms.Web.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TechElevator.Web
+namespace Forms.Web
 {
     public class Startup
     {
-        //beginning of insert
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -20,14 +21,17 @@ namespace TechElevator.Web
 
         public IConfiguration Configuration { get; }
 
-        //end of insert
-
-
         // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
-        {            
-            services.AddMvc();
+        {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,44 +41,20 @@ namespace TechElevator.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
 
             app.UseStaticFiles();
+            app.UseCookiePolicy();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            //insert starts here
-            SqlConnectionString = Configuration["ConnectionStrings:SqlConnectionString"];
-            FilePath = Configuration["ConnectionStrings:FilePath"];
-            Source = Configuration["ConnectionStrings:Source"];
-            //insert ends here
         }
-    
-        //insert starts here
-
-        public static string SqlConnectionString
-        {
-            get;
-            private set;
-        }
-
-        public static string FilePath
-        {
-            get;
-            private set;
-        }
-
-        public static string Source
-        {
-            get;
-            private set;
-        }
-
-        //insert end here
-
-
-}
+    }
 }

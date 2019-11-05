@@ -30,8 +30,9 @@ namespace GETForms.Web.DAL
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM customer WHERE first_name LIKE @name or last_name like @name ORDER BY last_name", conn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM customer WHERE first_name LIKE @name or last_name like @name ORDER BY " + sortBy;, conn);
                 cmd.Parameters.AddWithValue("@name", "%" + search + "%");
+                cmd.Parameters.AddWithValue("@sortBy", "%" + sortBy + "%");
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())

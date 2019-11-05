@@ -22,7 +22,35 @@ namespace Post.Web.DAL
         /// <returns></returns>
         public IList<Review> GetAllReviews()
         {
-            throw new NotImplementedException();
+            IList<Review> reviews = new List<Review>();
+
+            string reviewsSql = @"Select * from reviews";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(reviewsSql, conn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    reviews.Add(MapRowToReview(reader));
+                }
+            }
+            return reviews;
+
+        }
+        private Review MapRowToReview(SqlDataReader reader)
+        {
+            return new Review()
+            {
+                Name = Convert.ToString(reader["username"]),
+                Stars = Convert.ToInt32(reader["rating"]),
+                ReviewTitle = Convert.ToString(reader["review_title"]),
+                BookReview = Convert.ToString(reader["review_text"]),
+                Date = Convert.ToDateTime(reader["review_date"])
+            };
         }
 
         /// <summary>
@@ -30,9 +58,30 @@ namespace Post.Web.DAL
         /// </summary>
         /// <param name="newReview"></param>
         /// <returns></returns>
-        public int SaveReview(Review newReview)
+        public void SaveReview(Review newReview)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string sql = "Insert into reviews values(@username, @stars, @reviewtitle, @bookreview, @date);";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@username", newReview.Name);
+                    cmd.Parameters.AddWithValue("@stars", newReview.Stars);
+                    cmd.Parameters.AddWithValue("@reviewtitle", newReview.ReviewTitle);
+                    cmd.Parameters.AddWithValue("@bookreview", newReview.BookReview);
+                    cmd.Parameters.AddWithValue("@date", newReview.Date);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
         }
+
+
     }
 }

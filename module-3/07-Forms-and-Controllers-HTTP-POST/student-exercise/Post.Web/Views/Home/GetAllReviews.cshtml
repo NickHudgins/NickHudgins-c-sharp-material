@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Post.Web.Models.Review>
+
+@{
+    ViewData["Title"] = "GetAllReviews";
+}
+
+<div>
+    <img src="~/images/forDummies.png" />
+</div>
+<h2>Past Reviews</h2>
+<p>
+    <a asp-action="Index">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stars)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookReview)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stars)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReviewTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookReview)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey / }) |
+                    @Html.ActionLink("Details", "Details", new { / id=item.PrimaryKey / }) |
+                    @Html.ActionLink("Delete", "Delete", new { / id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

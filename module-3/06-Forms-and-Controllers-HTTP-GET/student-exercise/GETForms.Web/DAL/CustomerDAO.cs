@@ -1,4 +1,5 @@
-﻿using GETForms.Web.Models;
+﻿
+using GETForms.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -24,7 +25,33 @@ namespace GETForms.Web.DAL
         /// <returns></returns>
         public IList<Customer> SearchForCustomers(string search, string sortBy)
         {
-            throw new NotImplementedException();
+            IList<Customer> customer = new List<Customer>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM customer WHERE first_name LIKE @name or last_name like @name ORDER BY last_name", conn);
+                cmd.Parameters.AddWithValue("@name", "%" + search + "%");
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    customer.Add(MapRowToCustomer(reader));
+                }
+            }
+
+            return customer;
+        }
+
+        private Customer MapRowToCustomer(SqlDataReader reader)
+        {
+            return new Customer()
+            {
+                FirstName = Convert.ToString(reader["first_name"]),
+                LastName = Convert.ToString(reader["last_name"]),
+                Email = Convert.ToString(reader["email"]),
+                IsActive = Convert.ToBoolean(reader["active"])
+            };
         }
     }
 }

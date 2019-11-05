@@ -10,13 +10,15 @@ namespace GETForms.Web.Controllers
 {
     public class FilmsController : Controller
     {
+        public string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=dvdstore;Integrated Security=True";
         /// <summary>
         /// The request to display an empty search page.
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()
         {
-            return null;
+            FilmSearch movie = new FilmSearch();
+            return View(movie);
         }
 
         /// <summary>
@@ -24,10 +26,12 @@ namespace GETForms.Web.Controllers
         /// </summary>
         /// <param name="request">A request model that contains the search parameters.</param>
         /// <returns></returns>
-        public ActionResult SearchResult(/*FilmSearch request */)
+        public ActionResult SearchResult(FilmSearch search)
         {
+            FilmDAO dao = new FilmDAO(connectionString);
+            IList<Film> result = dao.GetFilmsBetween(search.Genre, search.MinLength, search.MaxLength);
+            return View(result);
             /* Call the DAL and pass the values as a model back to the View */
-            return null;
         }
     }
 }

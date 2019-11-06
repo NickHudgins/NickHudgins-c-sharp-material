@@ -13,7 +13,7 @@ namespace SessionCart.Web.Controllers
     {
         public IActionResult Index()
         {
-            string value = "John";
+            string value = "Nick";
             HttpContext.Session.SetString("Name",value);
             return View("Index", value);
         }

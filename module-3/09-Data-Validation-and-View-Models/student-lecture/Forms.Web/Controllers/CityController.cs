@@ -51,6 +51,11 @@ namespace Forms.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult New(City city)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("New", city);
+            }
+
             // Save the City
             cityDao.AddCity(city);
 

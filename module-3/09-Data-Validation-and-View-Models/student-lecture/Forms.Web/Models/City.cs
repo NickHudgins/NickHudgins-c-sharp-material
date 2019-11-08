@@ -9,13 +9,18 @@ namespace Forms.Web.Models
     public class City
     {
         public int CityId { get;  set; }
-        
+
+        [Required]
+        [MinLength(3, ErrorMessage = "Name must be at lest 3 characters bro")]
         public string Name { get;  set; }
 
+        [Required]
         public string CountryCode { get;  set; }
 
+        [Required]
         public string District { get;  set; }
 
+        [Range(100, 100000000)]
         public int Population { get;  set; }
     }
 }

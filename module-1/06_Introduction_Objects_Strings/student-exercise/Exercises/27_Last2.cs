@@ -21,16 +21,16 @@ namespace Exercises
 
             if (str.Length > 2)
             {
-                return 0;
-            }
-            string end = str.Substring(str.Length - 2);
+                string last2Str = str.Substring(str.Length - 2);
+                string test = str.Substring(0, str.Length - 1);
 
-            for (int i = 0; i < str.Length - 2; i++)
-            {
-                string subStr = str.Substring(i, i + 2);
-                if ( subStr.Equals( "end" ))
+
+                for (int i = 0; i < test.Length - 1; i++)
                 {
-                    count++;
+                    if (test.Substring(i, 2) == last2Str)
+                    {
+                        count++;
+                    }
                 }
             }
             return count;

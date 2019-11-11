@@ -17,17 +17,17 @@ namespace Exercises
         */
         public string StringX(string str)
         {
-
             string result = str;
+
             for (int i = 0; i < result.Length - 1; i++)
             {
-                if ( == "x")
+                if (result.ElementAt(i) == 'x')
                 {
                     result = result.Remove(i, 1);
                     i--;
                 }
             }
-            return result;
+            return result;     //cannot get this one to work
         }
     }
 }

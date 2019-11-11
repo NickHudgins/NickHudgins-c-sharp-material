@@ -15,7 +15,7 @@ actual command from other text in Unix documentation.
     refer to?
 ----
 
-Home directory
+ Tide is the root directory or folder
 
 ----
 3.  A good habit to develop, especially while you're developing your skills on
@@ -23,9 +23,9 @@ Home directory
     This can be easily accomplished with the "pwd" command.
 ----
 
+
 $ pwd
-$ pwd
-/c/Users/nickh/NickHudgins-c-sharp-material/module-1/01_Introduction_Tools/student-exercise/csharp-helloworld
+/c/Users/nickh/NickHudgins-c-sharp-material/module-1/01_Introduction_Tools/student-exercise
 
 
 The present working directory displayed should match the directory you changed
@@ -47,16 +47,13 @@ drwxr-xr-x 1 nickh 197121    0 Sep 16 15:22 ./
 drwxr-xr-x 1 nickh 197121    0 Sep 16 15:22 ../
 drwxr-xr-x 1 nickh 197121    0 Sep 16 15:22 csharp-helloworld/
 -rw-r--r-- 1 nickh 197121 8485 Sep 16 16:23 introduction-to-tools-exercises.txt
--rw-r--r-- 1 nickh 197121 3125 Sep 16 15:22 README.md
-
-
 
 ----
 5.  What do the "." and ".." directories displayed in the directory listing in
     Exercise 4 represent?
 ----
 
-. represents the directory itself
+. represents the current directory you are in
 .. represents the the parent directory
 
 ----
@@ -64,11 +61,7 @@ drwxr-xr-x 1 nickh 197121    0 Sep 16 15:22 csharp-helloworld/
     directory listing in Exercise 4?
 ----
 
-./
-../
-csharp-helloworld/
 introduction-to-tools-exercises.txt
-README.md
 
 
 ----
@@ -76,9 +69,9 @@ README.md
     the directory listing in Exercise 4?
 ----
 
-drwxr-xr-x 1 nickh 197121    0 Sep 16 15:22 ./
-drwxr-xr-x 1 nickh 197121    0 Sep 16 15:22 ../
-drwxr-xr-x 1 nickh 197121    0 Sep 16 15:22 csharp-helloworld/
+./
+../
+csharp-helloworld/
 
 
 
@@ -146,9 +139,9 @@ along, and then at the end.
     Show your present working directory after the change.
 ----
 
-$ cd Helloworld
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ cd csharp-helloworld
+$pwd
+C:\Users\nickh\nickhudgins-c-sharp-material\module-1\01_Introduction_Tools\student-exercise\csharp-helloworld
 
 
 ----
@@ -156,16 +149,14 @@ $ <enter command to display present working directory>
     path?
 ----
 
-<type your answer here>
-
+absolute
 
 ----
 12. List all the files and directories, including any dot-files or dot-directories in
     your present working directory.
 ----
-
-$ <enter command to list all files and directories including dot-files and dot-directories>
-<type or copy-paste the result here>
+$ ls
+database/ Helloworld/ Helloworld.sln
 
 
 ----
@@ -179,8 +170,10 @@ $ cp Program.cs Helloworld.cs.backup
 The "cp" parameters are the name of the source file followed by the name of the
 destination file.
 
-$ <enter command to list all files and directories in order to confirm the creation of the backup file>
-<type or copy-paste the result here>
+$ ls
+App.config            Helloworld.csproj  Properties/
+bin/                  obj/
+Helloworld.cs.backup  Program.cs
 
 
 ----
@@ -193,8 +186,16 @@ $ mv Program.cs.backup Program.cs.copy
 The "mv" parameters are the existing name of the file followed by the new name
 of the file.
 
-$ <enter command to list all files and directories in order to confirm the renaming of the file>
-<type or copy-paste the result here>
+$ mv Helloworld.cs.backup Helloworld.cs.copy
+// no result
+
+new files and folders 
+
+New list of files and folders in directory
+
+$ ls
+App.config  Helloworld.cs.copy  obj/        Properties/
+bin/        Hellowworld.csproj  Program.cs
 
 
 ----
@@ -206,17 +207,40 @@ $ <enter command to list all files and directories in order to confirm the renam
 ----
 
 $ <enter the Git command to display status>
-<type or copy-paste the result here>
 
-$ <enter the Git command to "stage" all changes>
-<type or copy-paste the result here>
+$ git status (from m1-w1d1-introduction-to-tools-exercises)
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
 
-$ <enter the Git command to save all "staged" changes>
-<type or copy-paste the result here>
+        new file:   csharp-helloworld/Helloworld/Helloworld.cs.copy
+        modified:   introduction-to-tools-exercises.txt
+
+
+$ git commit -m "homework commit"                             **(commiting what I am currently working on as of 11/10)**
+[master 18a255b] homework commit
+ 15 files changed, 223 insertions(+), 144 deletions(-)
+ create mode 100644 module-3/09-Data-Validation-and-View-Models/student-exercise/Validation.Web/Models/User.cs
+ delete mode 100644 module-3/09-Data-Validation-and-View-Models/student-exercise/Validation.Web/Views/Home/About.cshtml
+ delete mode 100644 module-3/09-Data-Validation-and-View-Models/student-exercise/Validation.Web/Views/Home/Contact.cshtml
+ rewrite module-3/09-Data-Validation-and-View-Models/student-exercise/Validation.Web/Views/Home/Index.cshtml (99%)
+ delete mode 100644 module-3/09-Data-Validation-and-View-Models/student-exercise/Validation.Web/Views/Home/Privacy.cshtml
+ create mode 100644 module-3/09-Data-Validation-and-View-Models/student-exercise/Validation.Web/Views/Users/Login.cshtml
+ create mode 100644 module-3/09-Data-Validation-and-View-Models/student-exercise/Validation.Web/Views/Users/Register.cshtml
 
 $ git push origin master
-<type or copy-paste the result here>
-
+Enumerating objects: 409, done.
+Counting objects: 100% (409/409), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (365/365), done.
+Writing objects: 100% (403/403), 143.89 KiB | 3.89 MiB/s, done.
+Total 403 (delta 173), reused 85 (delta 18)
+remote: Resolving deltas: 100% (173/173), completed with 4 local objects.
+remote: Checking connectivity: 403, done.
+To https://bitbucket.org/te-cbus-cohort-9/nickhudgins-c-sharp-material.git
+   d74af62..18a255b  master -> master
 
 ----
 16. Delete the backup file, "Program.cs.copy" using the remove command.
@@ -226,8 +250,9 @@ $ rm Program.cs.copy
 
 The "rm" parameter is the name of the file to be deleted.
 
-$ <enter command to list all files and directories in order to confirm the file deletion>
-<type or copy-paste the result here>
+$ ls
+App.config  Helloworld.csproj  Program.cs
+bin/        obj/               Properties/
 
 
 ----
@@ -248,8 +273,8 @@ command line when that seems natural.
 
 Regardless of the option you chose, check your new location.
 
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$pwd
+C:\Users\nickh\nickhudgins-c-sharp-material\module-1\01_Introduction_Tools\student-exercise\csharp-helloworld
 
 
 ----
@@ -258,9 +283,9 @@ $ <enter command to display present working directory>
 ----
 
 $ mkdir docs
-$ <enter the command to change directory to "docs" using a relative path>
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ cd docs
+$ pwd
+C:\Users\nickh\nickhudgins-c-sharp-material\module-1\01_Introduction_Tools\student-exercise\csharp-helloworld
 
 ----
 19. Create a new file name "readme.txt" using VS Code, and add the text
@@ -277,10 +302,12 @@ Don't forget to save the file in VS Code!
     work so it can be reviewed by an instructor.
 ----
 
-$ <enter the Git command to display status>
+$ git status
 
-$ <enter the Git command to "stage" all changes>
+$ git add .
 
-$ <enter the Git command to save all "staged" changes>
+$ git commit -a -m "commit"
+
+$ git push
 
 $ <enter the Git command to save local repository to BitBucket>

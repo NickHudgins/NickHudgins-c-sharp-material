@@ -8,11 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 using Voter.Models;
 
 namespace Voter.Controllers
-{
+{                 //404 is an error associated with contollers.
+                  //unhandled exception is an error for the view.
     public class HomeController : Controller
     {
 
-        private const string UserIdKey = "Voter_UserId";
+        private const string UserIdKey = "Voter_UserId"; //session keys
         private const string UserAdminKey = "Voter_Admin";
 
         public IActionResult Index()
@@ -50,7 +51,7 @@ namespace Voter.Controllers
             if (user.Role == 1)
             {
                 userAdminValue = "true";
-            }
+            }                              //UserAdminKey states if admin or not
             HttpContext.Session.SetString(UserAdminKey, userAdminValue);
         }
 
@@ -89,7 +90,7 @@ namespace Voter.Controllers
         public bool IsAuthenticated
         {
             get
-            {
+            {               //is someone logged in?
                 int? result = HttpContext.Session.GetInt32(UserIdKey);
                 return (result != null && result > 0);
             }

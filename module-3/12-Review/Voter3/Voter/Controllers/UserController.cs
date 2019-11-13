@@ -7,11 +7,13 @@ using Voter.DAL.Interfaces;
 using Voter.Models;
 
 namespace Voter.Controllers
-{
+{   //inherits from home controller. All other controllers have access to the session info.
+    //session is specifically a cotroller based function.
     public class UserController : HomeController
     {
-        IUserDao userDao;
-
+        IUserDao userDao; //class level variable. Accessible by other methods.
+        //constructor to use dependency injection.
+        //remember: constructors do not get inherited.
         public UserController(IUserDao userDao)
         {
             this.userDao = userDao;
@@ -35,7 +37,9 @@ namespace Voter.Controllers
             User user = userDao.SaveUser(register.UserName, register.Password, 0);
 
             if (user is null || user.Id <= 0)
-            {
+            {   
+                //TempData will hang onto the string and pass it to the next contoller action
+                //ViewBag will not do this.
                 TempData["ErrorMessage"] = "Unable to register user. Duplicate?";
                 return RedirectToAction("Error", "Home");
             }
@@ -65,7 +69,7 @@ namespace Voter.Controllers
             }
 
             User user = userDao.GetUserByUserName(login.UserName);
-
+            //base not needed as LogUserIn is unique.
             base.LogUserIn(user);
 
             return RedirectToAction("Index", "Home");
@@ -73,13 +77,21 @@ namespace Voter.Controllers
 
         public IActionResult Logout()
         {
-            return View();
+            base.LogUserOut();
+            return RedirectToAction("Login", "User");
         }
 
         public IActionResult List()
         {
             //for admin only
-            return View();
+            if (!base.IsAdmin)
+            {
+                TempData["ErrorMessage"] = "You're not important enough for that function.";
+                return RedirectToAction("Error", "Home"); //action name/controller name.
+            }                                             //can change rolls in SQL
+            IList<User> users = userDao.GetAllUsers();
+
+            return View(users);
         }
     }
 }

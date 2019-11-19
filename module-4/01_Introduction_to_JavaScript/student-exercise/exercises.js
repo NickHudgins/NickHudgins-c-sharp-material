@@ -6,12 +6,16 @@
 		sumDouble(3, 2) → 5
 		sumDouble(2, 2) → 8
 
-		function sumDouble(x, y) {
-			// do logic here
-			// return result;
-			return x + y;
-        }
 */
+function sumDouble(x, y) {
+	let result = x + y
+
+	if (x === y) {
+		return result * 2;
+	}
+	// return result;
+	return result;
+}
 
 /*
 2. **hasTeen** We'll say that a number is "teen" if it is in the range 13..19 inclusive. 
@@ -21,54 +25,107 @@
 		hasTeen(20, 19, 10) → true
 		hasTeen(20, 10, 13) → true
 */
+function hasTeen(x, y, z) {
+	let teenArray = [x, y, z]
 
-/* 
-3. **lastDigit** Given two non-negative int values, return true if they have the same 
+	for (let i = 0; i < teenArray.length; i++) {
+		if (teenArray[i] >= 13 && teenArray[i] <= 19) {
+			return true;
+		}
+
+	}
+	return false;
+}
+
+
+/*
+3. **lastDigit** Given two non-negative int values, return true if they have the same
     last digit, such as with 27 and 57.
 
 		lastDigit(7, 17) → true
 		lastDigit(6, 17) → false
 		lastDigit(3, 113) → true
 */
+function lastDigit(x, y) {
+	if (x % 10 == y % 10) {
+		return true;
+	}
+	return false;
+}
+
 
 /*
-4. **seeColor** Given a string, if the string begins with "red" or "blue" return that color 
+4. **seeColor** Given a string, if the string begins with "red" or "blue" return that color
     string, otherwise return the empty string.
 
 		seeColor("redxx") → "red"
 		seeColor("xxred") → ""
         seeColor("blueTimes") → "blue"
 */
+function seeColor(colorString) {
+	if (colorString.substring(0, 4) === "blue") {
+		return "blue";
+	}
+	if (colorString.substring(0, 3) === "red") {
+		return "red";
+	}
+	else {
+		return "";
+	}
+}
 
 /*
-5. **oddOnly** Write a function that given an array of integer of any length, filters out 
+5. **oddOnly** Write a function that given an array of integer of any length, filters out
     the even number, and returns a new array of just the the odd numbers.
 
 		oddOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) → [1, 3, 5, 7, 9, 11];
 		oddOnly([2, 4, 8, 32, 256]); → []
 */
+function oddOnly() {
+	let intArray = [];
+
+	for (let i = 0; i < intArray.length; i++) {
+		if (intArray[i] % 2 != 0) {
+			newArray.push(intArray[i])
+		}
+	}
+	return newArray;
+}
 
 /*
-6. **frontAgain** Given a string, return true if the first 2 chars in the string also appear 
+6. **frontAgain** Given a string, return true if the first 2 chars in the string also appear
     at the end of the string, such as with "edited".
 
 		frontAgain("edited") → true
 		frontAgain("edit") → false
 		frontAgain("ed") → true
 */
+function frontAgain(charString) {
+	if (charString.substring(0, 2) == charString.substring(charString.length - 2)) {
+		return true;
+	}
+	return false;
+}
 
 /*
-7. **cigarParty** When squirrels get together for a party, they like to have cigars. 
-A squirrel party is successful when the number of cigars is between 40 and 60, inclusive. 
-Unless it is the weekend, in which case there is no upper bound on the number of cigars. 
-Write a squirrel party function that return true if the party with the given values is successful, 
+7. **cigarParty** When squirrels get together for a party, they like to have cigars.
+A squirrel party is successful when the number of cigars is between 40 and 60, inclusive.
+Unless it is the weekend, in which case there is no upper bound on the number of cigars.
+Write a squirrel party function that return true if the party with the given values is successful,
 or false otherwise.
 
 		cigarParty(30, false) → false
 		cigarParty(50, false) → true
 		cigarParty(70, true) → true
 */
-
+function cigarParty(cigars, isWeekend){
+	if(isWeekend){
+		return cigars >= 40;
+	}
+	else{
+		return cigars >= 40 && cigars <= 60;
+	}
+}
 /*
 8. **fizzBuzz** Because you know you can't live without it, FizzBuzz.
 
@@ -78,6 +135,20 @@ or false otherwise.
 		fizzBuzz(15) → "FizzBuzz"
 		fizzBuzz(8) → 8
 */
+function fizzBuzz(num) {
+		if(num % 3 == 0 && num % 5 == 0){
+			return "FizzBuzz"
+		}
+		else if(num % 3 == 0){
+			return "Fizz";
+		}
+		else if(num % 5 == 0){
+			return "Buzz"
+		}
+		return num;
+	}
+
+
 
 /*
 9. **filterEvens** Write a function that filters an array to only include even numbers.
@@ -95,9 +166,11 @@ or false otherwise.
 	filterBigNumbers([3, 2, 7, 1, -100, -120]) → []
 	filterBigNumbers([]) → []
 */
+function filterBigNumbers(){
 
+}
 /*
-11. **filterMultiplesOfX** Write a function to filter numbers that are a multiple of a 
+11. **filterMultiplesOfX** Write a function to filter numbers that are a multiple of a
 parameter, `x` passed in.
 
 	filterMultiplesOfX([3, 5, 1, 9, 18, 21, 42, 67], 3) → [3, 9, 18, 21, 42]
@@ -105,7 +178,7 @@ parameter, `x` passed in.
 */
 
 /*
-12. **createObject** Write a function that creates an object with a property called 
+12. **createObject** Write a function that creates an object with a property called
 firstName, lastName, and age. Populate the properties with your values.
 
 	createObject() →

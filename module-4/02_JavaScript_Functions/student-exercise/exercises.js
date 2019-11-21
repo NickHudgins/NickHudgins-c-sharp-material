@@ -1,6 +1,10 @@
 /*
- * Document this function
+ * Return Hemisphere depending on month
+ * @param {month} month 
+ * @param {month} day
+ * @return {hemisphere}
  */
+
 function isSummer(month, day = 1, hemisphere = 'northern') {
   if (month === 7 || month === 8) {
     return hemisphere === 'northern';
@@ -41,6 +45,25 @@ function isSummer(month, day = 1, hemisphere = 'northern') {
  * @returns {boolean} true if they are admitted
  */
 
+function isAdmitted(gpa, satScore, recommendation) {
+  if (gpa > 4.0 || satScore > 1300) {
+    return true;
+  }
+  else if (gpa > 3.0 && recommendation == true) {
+    return true;
+  }
+  else if (satScore > 1200 && recommendation == true) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+ 
+
+
+
+
 /**
  * Write a function called useParameterToFilterArray so that it takes an anonymous
  * function and uses that in `unfilteredArray` filter function. Return the result.
@@ -48,7 +71,10 @@ function isSummer(month, day = 1, hemisphere = 'northern') {
  * @param {function} filterFunction the function to filter with
  * @returns {number[]} the filtered array
  */
+function useParameterToFilterArray(filterFunction) {
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
+return unfilteredArray.filter(filterFunction);
+}
 
 /**
  * Write a function called makeNumber to take two strings
@@ -62,6 +88,9 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @param {string} [second=''] the second string of digits to concatenate
  * @returns {number} the resultant number
  */
+function makeNumber(first, second=''){
+  return Number(first + second);
+}
 
 /**
  * Write a function called addAll that takes an unknown number of parameters
@@ -70,12 +99,22 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @param {...number} num a series of numbers to add together
  * @returns {number} the sum of all the parameters (or arguments)
  */
+function addAll() {
+  let sum = 0;
+  for(let i = 0; i < arguments.length; i++){
+    sum += arguments[i];
+  }
+  return sum;
+}
 
 /*
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
  */
+
+ function makeHappy(){
+ }
 
 /*
  * Write and document a function called getFullAddressesOfProperties

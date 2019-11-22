@@ -37,5 +37,14 @@ function displayGroceries() {
   });
 }
 
+document.addEventListener('DOMContentLoaded', () =>{
 setPageTitle();
 displayGroceries();
+
+//mark item complete
+const checkCircle = document.getElementById('checkCircle').addEventListener("click", checkCircle);;
+  
+
+  //mark item incomplete 
+
+});

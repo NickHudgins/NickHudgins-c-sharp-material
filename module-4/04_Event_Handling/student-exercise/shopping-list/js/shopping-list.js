@@ -32,19 +32,63 @@ function displayGroceries() {
     li.innerText = item.name;
     const checkCircle = document.createElement('i');
     checkCircle.setAttribute('class', 'far fa-check-circle');
+    // li.addEventListener("click", (event) => {
+    //   if (li.classList.contains("completed")) {
+    //     li.classList.remove("completed");
+    //     li.completed = false;
+    //   }
+    //   else {
+    //     li.classList.add("completed");
+    //     li.completed = true;
+    //   }
+    // })
     li.appendChild(checkCircle);
     ul.appendChild(li);
   });
 }
 
-document.addEventListener('DOMContentLoaded', () =>{
 setPageTitle();
 displayGroceries();
 
-//mark item complete
-const checkCircle = document.getElementById('checkCircle').addEventListener("click", checkCircle);;
-  
+document.addEventListener('DOMContentLoaded', () => {
 
-  //mark item incomplete 
+  const tasks = document.querySelectorAll('li');
+  const btn = document.getElementById('toggleAll');
 
+  btn.addEventListener('click', () => {
+    tasks.forEach((task) => {
+      if (!task.classList.contains('completed')) {
+        task.classList.add('completed');
+        task.querySelector('i').classList.add('completed');
+        btn.innerHTML = "Mark All Incomplete";
+      }
+      else {
+        task.classList.remove('completed');
+        task.querySelector('i').classList.remove('completed');
+        btn.innerHTML = "Mark All Complete";
+      }
+    });
+    allItemsIncomplete = !allItemsIncomplete;
+  })
 });
+
+const tasks = document.querySelectorAll('li');
+
+  tasks.forEach((task) => {
+    // when you click on a task mark it completed
+    task.addEventListener('click', () => {
+      if (!task.classList.contains('completed')) {
+        task.classList.add('completed');
+        task.querySelector('i').classList.add('completed');
+      }
+    });
+
+    // when you double click a task remove the completed class
+    task.addEventListener('dblclick', () => {
+      if (task.classList.contains('completed')) {
+        task.classList.remove('completed');
+        task.querySelector('i').classList.remove('completed');
+      }
+    });
+  });
+

@@ -1,5 +1,5 @@
 /* UPDATE THIS TO YOUR URL */
-const API_URL = 'http://5c53275ea659410014eeea14.mockapi.io/api/groceries';
+const API_URL = 'https://localhost:44322/api/groceries';
 
 let groceries = [];
 
@@ -22,22 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('ul').addEventListener('dblclick', (event) => {
         if (event.target.nodeName.toLowerCase() === "li") {
             incomplete(event.target);
-        } 
+        }
     });
 
-    document.querySelector('.addButton').addEventListener('click', ()=> {
+    document.querySelector('.addButton').addEventListener('click', () => {
         showAdd();
     });
 
 });
 
 function showAdd() {
-    if('content' in document.createElement('template')) {
+    if ('content' in document.createElement('template')) {
         const list = document.querySelector("ul");
         const tmpl = document.getElementById('shopping-add-item-template').content.cloneNode(true);
         list.appendChild(tmpl);
     } else {
-    console.error('Your browser does not support templates');
+        console.error('Your browser does not support templates');
     }
 
     const input = document.getElementById('addItem');
@@ -48,8 +48,8 @@ function showAdd() {
         if (event.key === 'Escape') {
             removeAddItemForm();
         }
-      });
-    
+    });
+
     input.focus();
 
 
@@ -70,29 +70,29 @@ function addItemFromInput() {
 }
 
 function removeAddItemForm() {
-   const element = document.querySelector('.addItemForm');
-   element.remove(element);
+    const element = document.querySelector('.addItemForm');
+    element.remove(element);
 }
 
 
 function displayGroceries() {
-    if('content' in document.createElement('template')) {
+    if ('content' in document.createElement('template')) {
         const container = document.querySelector("ul");
         groceries.forEach((item) => {
             addGroceryToList(item, container);
         });
 
-      } else {
+    } else {
         console.error('Your browser does not support templates');
-      }
+    }
 }
 
 function addGroceryToList(item, container) {
     const tmpl = document.getElementById('shopping-list-item-template').content.cloneNode(true);
     tmpl.querySelector("li").dataset.id = item.id;
-    tmpl.querySelector("li").insertAdjacentHTML('afterbegin',item.name);
-    if( item.completed ) {
-      tmpl.querySelector("li").classList.add('completed');
+    tmpl.querySelector("li").insertAdjacentHTML('afterbegin', item.name);
+    if (item.completed) {
+        tmpl.querySelector("li").classList.add('completed');
     }
     container.appendChild(tmpl);
 }
@@ -117,7 +117,7 @@ function incomplete(item) {
 
 function getItemById(id) {
     return groceries.find(obj => obj.id == id);
-    
+
 }
 
 /* EXERCISE STARTS HERE */
@@ -127,7 +127,14 @@ function getItemById(id) {
  * On  success if should set the groceries[], and call the displayGroceries() method
  */
 function loadGroceries() {
-
+    fetch(API_URL)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            groceries = data;
+            displayGroceries();
+        })
 
 }
 
@@ -138,7 +145,15 @@ function loadGroceries() {
  * @param {boolean} completed 
  */
 function updateItem(item, completed) {
-
+    item.completed = completed;
+    fetch((API_URL + "/" + item.id), {
+        method: 'PUT',
+        body: JSON.stringify(item),
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        }
+    })
 }
 
 /**
@@ -147,8 +162,10 @@ function updateItem(item, completed) {
  * @param {object} item 
  */
 function deleteItem(item) {
-
-
+    fetch((API_URL + "/" + item.id), {
+        method: 'DELETE',
+        body: JSON.stringify(item)
+    })
 }
 
 
@@ -157,7 +174,12 @@ function deleteItem(item) {
  * @param {object} item 
  */
 function saveItem(item) {
-
-
-  
+    fetch(API_URL, {
+        method: 'POST',
+        body: JSON.stringify(item),
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        }
+    })
 }
